@@ -28,7 +28,7 @@ def predict():
 
     except Exception as e:
         return jsonify({"error": str(e)})
-
 if __name__ == "__main__":
-    app.run(debug=True, port=5004
-            )
+    import os
+    port = int(os.environ.get("PORT", 10000))  # Ensure it uses the Render-assigned port
+    app.run(host="0.0.0.0", port=port, debug=True)
